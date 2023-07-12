@@ -12,13 +12,35 @@ public class Recipe {
     private int uid;
     private String author;
     private String title;
-    private int likes;
-    private int dislikes;
+    private int likes = 0;
+    private int dislikes = 0;
     @ElementCollection
     private List<String> ingredients = new ArrayList<String>();
     @ElementCollection
     private List<String> instructions = new ArrayList<String>();
+    @ElementCollection
+    private List<String> tags = new ArrayList<String>();
+    @ElementCollection
+    private List<String> comments = new ArrayList<String>();
+
     
+    public Recipe() {
+
+    }
+    public Recipe(String author, String title, List<String> ingredients, List<String> instructions, List<String> tags) {
+        this.author = author;
+        this.title = title;
+        this.ingredients = ingredients;
+        this.instructions = instructions;
+        this.tags = tags;
+    }
+
+    public List<String> getTags() {
+        return tags;
+    }
+    public void setTags(List<String> tags) {
+        this.tags = tags;
+    }
     public int getUid() {
         return uid;
     }
